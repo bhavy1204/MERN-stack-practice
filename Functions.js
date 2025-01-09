@@ -52,4 +52,41 @@ let greet=function (){
 BaarBaar(greet,2);
 //----------------
 
- 
+
+//Methods :- peformed on an object, They are at their core a function only.
+
+const obj={
+    add:function(a,b){
+        return a+b;
+    },
+    sub:function(a,b){
+        return a-b;
+    }
+}
+
+console.log(obj.sub(10,20));
+
+//In javascript the STring and arrays and objects are internally Objects only,
+
+// sub(10,40);
+//-----------------
+
+//THIS refers to an object that is executing the current piece of code.
+
+// this.obj
+
+// let n1 = prompt("ENter n1 ");
+// let n2 = prompt("ENter n2 ");
+console.log(n1);
+console.log(n2);
+
+const meow={
+    name:"Ashish",
+
+    number1:parseInt(n1),
+    number2:parseInt(n2),
+    avg:function(){
+        return (this.number1+this.number2);
+    }
+}
+console.log(meow.avg());
