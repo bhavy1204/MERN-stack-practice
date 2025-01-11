@@ -33,3 +33,90 @@
 
 //-----------------------------------------------------------------------------------
 
+//Next we did the mainpulation of text content like textContent,InnerHTML,Innertext etc.
+
+//We did it by :- 
+// let p=document.querySelector("p");
+// p.innerText="VaL";
+// p.innerHTML="VaL";
+// p.TextContent=`<b>${p.innerText}</b>;
+
+
+//------------------------------------------------------------------------------
+
+//Manipulating Attributes
+
+//TO get value
+//obj.getAttribut(attr);
+
+//To change value 
+//obj.setAttrivute(attr,val);
+
+// like Id, class, style , src in imgaes etc
+// let i= document.querySelector('img');
+// undefined
+// i
+// <img src=​"spiderman_img.png" id=​"mainImg">​
+// i.getAttribute('id')
+// 'mainImg'
+// i.setAttribute('id',"MEOW");
+
+
+// let i=document.querySelector("img");
+
+// undefined
+
+// i.setAttribute('src','creation_1.png');
+
+//--------------------------------------------------------------------------------
+
+//MANIPULATING STYLE
+// let i=document.querySelector("img");
+
+// undefined
+// console.dir(i);
+
+// undefined
+// i.style
+
+// CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}
+
+// i.style.border='10px solid black';
+// '10px solid black'
+
+// i.style.borderRadius='10px';
+// '10px'
+
+// i.style.margin="auto"
+// 'auto'
+
+// i.style.margin="center"
+// 'center'
+
+// i.style.margin="100px"
+// '100px'
+
+// let heading = document.querySelectorAll("h1");
+// undefined
+// heading.style.color="red";
+// VM1613:1 Uncaught TypeError: Cannot set properties of undefined (setting 'color')
+//     at <anonymous>:1:20
+// (anonymous) @ VM1613:1Understand this errorAI
+// let heading = document.querySelector("h1");
+// undefined
+// heading.style.colo
+// undefined
+// heading.style.color="neon"
+// 'neon'
+// heading.style.color="red";
+// 'red'
+// heading.style.backgroundColor="yellow";
+// 'yellow'
+// heading.style.marginLeft="auto"
+// 'auto'
+// heading.style.marginLeft="100px"
+// '100px'
+// heading.style.marginRight="auto"
+// 'auto'
+// heading.style.marginRight="200px"
+// '200px'
