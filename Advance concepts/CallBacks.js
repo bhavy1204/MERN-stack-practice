@@ -35,3 +35,5 @@ jcolor("red", 1000, function () {
     });
   });
 });
+
+//Basically call back hell was the first problem that we face due to asynchronus nature of javascript.
