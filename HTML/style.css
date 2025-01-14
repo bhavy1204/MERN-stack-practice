@@ -1,0 +1,21 @@
+.header{
+    width: 200px;
+    /*To center a div */
+    /* margin: 0 auto; */
+
+    /* text-align: center;  */
+    /* TO CENTER INSIDE A DIV */
+    /*1.  text-align: center; */
+    /*    line-height: 100vh; */
+
+    /*2. display: flex;
+    justify-content: center;
+    align-items: center; */
+
+
+    /*3. display: grid;
+    place-items: center; */
+
+
+    
+}
