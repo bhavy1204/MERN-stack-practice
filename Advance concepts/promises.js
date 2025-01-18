@@ -38,3 +38,34 @@ let el = document.createElement("button");
 ///resolve and reject.
 
 //states : 3 states 
+
+
+// Lets do the above tasks with help of promises
+
+function SaveData(){
+    return new Promise((success,failure)=>{
+        let i = Math.floor(Math.random()*10 +1);
+        if(i>5)
+            success("Success");
+        else
+            failure("failure");
+    });
+}
+
+SaveData().then((result)=>{
+    console.log("Meow 1 ", result);
+    return SaveData();
+}).then((result)=>{
+    console.log("Meow 2 ", result);
+    return SaveData();
+}).then((result)=>{
+    console.log("Meow 3 ", result);
+})
+.catch((err)=>{
+    console.log("Failure ", err);
+});
+
+// Promise chaining 
+
+
+
