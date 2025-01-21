@@ -21,6 +21,10 @@
 
 // Status code => 
 
+    // Adding information in an URL => Key-Value pair
+
+// URL?Key=Value1&Key2=Value2;
+
 
 
 
