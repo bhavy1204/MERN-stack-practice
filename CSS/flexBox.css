@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+img{
+    height: 100vh;
+    Width: 100vw;
+}
+body{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
