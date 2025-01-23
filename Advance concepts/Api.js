@@ -55,7 +55,9 @@ let url = "https://catfact.ninja/fact";
 
 async function getKnowledge(){
     try {
+        // fetching api
         let res = await fetch(url);
+        // Parsing url/api
         let data = await res.json();
         console.log(data.fact);
 
