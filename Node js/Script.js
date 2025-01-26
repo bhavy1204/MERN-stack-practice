@@ -17,6 +17,14 @@ for(let i=2;i<args.length;i++){
     console.log("Meow ", args[i]);
 }
 
-let c= require = ("./temp");
+const d = require("./temp");
 
-console.log(c);
+console.log(d);
+
+// d.greet("ashish");
+
+const Folder = require("./numbers");
+
+console.log(Folder);
+
+console.log(Folder[1].two);
