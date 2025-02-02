@@ -1,2 +1,3 @@
-module.exports.one = "one";
+// module.exports.one = "one";
 
+export const one ="Ashish";

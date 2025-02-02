@@ -1,0 +1,15 @@
+{
+  "name": "node-js",
+  "version": "1.0.0",
+  "main": "NewImport.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bhavy Sarva",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "random-words": "^2.0.1"
+  }
+}

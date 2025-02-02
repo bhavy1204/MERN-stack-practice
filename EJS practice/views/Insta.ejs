@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagam page </title>
+    <link rel="stylesheet" href="/Style.css">
+</head>
+<body>
+    <h2>Hello <%= data.name %>, this is your IG account  </h2>
+    <hr>
+
+    <button id="follow">Follow</button>
+    <button>Message</button>
+    <p>
+        <%= data.followers %> "followers" &nbsp;&nbsp; <%= data.following%> "Fllowing "
+    </p>
+
+    <hr>
+
+    <% for(let post of data.posts) { %>
+        <img src="<%=post.image %>" alt="MEOW MEOW" height="100px" >
+        <p>
+            <%= post.likes %> "followers" &nbsp;&nbsp; <%= post.comments %> "Fllowing "
+        </p>
+    <% } %>
+ <script src="/App.js"></script>
+</body>
+</html>
