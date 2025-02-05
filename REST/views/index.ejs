@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>MERA SOCIAL MEDIA :) </h1>
+    <% for(p of posts){ %>
+        <div class="posts">
+           <h3>@<%= p.username %></h3>
+           <p> <%= p.content %></p>
+           <!--  -->
+           <a href="http://localhost:3000/posts/<%= p.id %>">Details...</a> <br>
+           <a href="http://localhost:3000/posts/<%= p.id %>/edit">Edit</a> <br>
+           <form action="/posts/<%= p.id %>?_method=DELETE" method="Post">
+               <button>DELETE</button>
+           </form>
+        </div>
+    <% } %>
+    <br>
+    <a href="http://localhost:3000/posts/new">Create New Post</a>
+</body>
+</html>

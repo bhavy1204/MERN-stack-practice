@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Edit post</h2>
+    <p>ID : <%= post.id %> </p>
+    <p>UserName : <%= post.username %> </p>
+    <form action="/posts/<%= post.id %>?_method=PATCH" method="post">
+        <textarea name="content"> <%= post.content %></textarea>
+        <button> POST </button>
+    </form> 
+    <!-- Html forms by deafult only accepts post and get we have to use method override otherwise -->
+     <!-- There are many ways to use method overrirde here i have used it using query value -->
+</body>
+</html>
