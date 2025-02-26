@@ -26,6 +26,9 @@ try {
   console.log(error);
 }
 
+// To end the connection otherwise the execution will not stop
+connection.end();
+
 // Will create and connect MYSQL to terminal next time
 
 
@@ -41,4 +44,6 @@ let randomData = () => {
   };
 }
 
-console.log(randomData());
+
+// To print the generated data using generate data function
+// console.log(randomData());
