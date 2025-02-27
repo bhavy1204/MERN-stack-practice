@@ -12,14 +12,26 @@ const connection = mysql.createConnection({
   password: '9928875294'
 });
 
+// Writing query in a variable
+// let q = "SHOW TABLES"
+let q = "INSERT INTO user(userId,username,email,password) VALUES ?";
+let data = [["1123", "Bhaavy1204", "Bhdavy@Email", "KyuBatau"],
+["1223", "Ashish1204", "Ahsish@Email", "HeHehehehehe"]
+];
+
 // Creating  queries using connection oject 
 try {
-  connection.query("SHOW TABLES",
+  // Just query than we can write simple q but if we are adding values via template(?) than we have to paas both q and data.
+  connection.query(q, [data],
     (err, res) => {
       if (err) {
         console.log(err);
-      } 
+      }
+      // The result is array of objects
       console.log(res);
+      // console.log(res.length);
+      // console.log(res[0]);
+      // console.log(res[1]);
     }
   )
 } catch (error) {
