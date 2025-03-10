@@ -5,7 +5,13 @@ const { faker } = require('@faker-js/faker');
 const mysql = require('mysql2');
 
 const express = require('express');
-const app =express();
+const app = express();
+const path = require("path");
+
+// For ejs
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
+
 
 // Craeting connection 
 const connection = mysql.createConnection({
@@ -86,13 +92,17 @@ const connection = mysql.createConnection({
 
 // Routing with express and sql 
 
-app.get('/',(req,res)=>{
+// Home page 
+app.get('/', (req, res) => {
   let query = "Select count(*) from user;";
   try {
-    connection.query(query,(err,result)=>{
-      if(err) throw err;
-      console.log(result);
-      res.send(result);
+    connection.query(query, (err, result) => {
+      if (err) { throw err };
+      // console.log(result[0]['count(*)']);
+      let count = result[0]['count(*)'];
+      // res.send(result[0]['count(*)']);
+      // res.send(result[0]);
+      res.render("home.ejs", { count });
     })
   } catch (err) {
     console.log(err);
@@ -101,6 +111,23 @@ app.get('/',(req,res)=>{
   // res.send("Aa gaya maut ka tamasha dekhne ! ");
 });
 
-app.listen(3000,()=>{
+// users route
+app.get("/users", (req, res) => {
+  let query ="SELECT * FROM user";
+  try {
+    connection.query(query,(err,result)=>{
+      if(err){
+        throw err;
+      }
+      res.render("users.ejs",{result});
+    })
+    // res.send("Success");
+  } catch (err) {
+    res.send("Failure");
+  }
+});
+
+
+app.listen(3000, () => {
   console.log("Halchal at port 3000 ");
 })
