@@ -16,17 +16,16 @@
         </tr>
         <% for(user of result){ %>
             <tr>
+                <td> <%=user.userId%> </td>
+                <td> <%=user.email%> </td>
+                <td> <%=user.username%> </td>
                 <td>
-                    <%=user.userId%>
-                </td>
-                <td>
-                    <%=user.email%>
-                </td>
-                <td>
-                    <%=user.username%>
+                    <form method="GET" action="/user/<%= user.userId %>/edit" >
+                        <button>Edit username</button>
+                    </form>
                 </td>
             </tr>
-            <%}%>
+        <%}%>
     </table>
 </body>
 
