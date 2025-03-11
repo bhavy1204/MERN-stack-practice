@@ -8,10 +8,17 @@ const express = require('express');
 const app = express();
 const path = require("path");
 
+const methodOverride =  require("method-override");
+
 // For ejs
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
+// For method override 
+app.use(methodOverride("_method"));
+
+// To parse the data we wil recive inn edit form
+app.use(express.urlencoded({extended : true}));
 
 // Craeting connection 
 const connection = mysql.createConnection({
@@ -130,23 +137,47 @@ app.get("/users", (req, res) => {
 
 // Edit path
 app.get("/user/:id/edit", (req, res) => {
-  let  userId = req.params.id;
+  let userId = req.params.id;
   let query = `SELECT * FROM user WHERE userID="${userId}";`;
   try {
-    connection.query(query,(err,result)=>{
-        if(err){
-          console.log(err);
-        }
-        let user = result[0];
-        console.log(user);
-        res.render("edit.ejs",{user});
+    connection.query(query, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      let user = result[0];
+      // console.log(user);
+      res.render("edit.ejs", { user });
     });
   } catch (error) {
-      console.log(error);
+    console.log(error);
   }
   // console.log( userId );
   // res.render("edit.ejs");
 });
+
+// Route for editing(DB) (PATCH request)
+app.patch("/user/:id", (req, res) => {
+  // res.send("WRORKING ! ");
+
+  let userId = req.params.id;
+  let query = `SELECT * FROM user WHERE userID="${userId}";`;
+  try {
+    connection.query(query, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      let user = result[0];
+      console.log(userId);
+      res.send(user +" Changed successfully ");
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  // console.log( userId );
+  // res.render("edit.ejs");
+
+});
+
 
 app.listen(3000, () => {
   console.log("Halchal at port 3000 ");

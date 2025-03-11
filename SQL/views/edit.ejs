@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Edit karde bhai </h2>
+    <h2>Edit karde bhai ye teri email : <%= user.email %> </h2>
+    <form method="post" action="/user/<%= user.userId %>?_method=PATCH">
+        <textarea name="username" id=""><%= user.username %> </textarea>
+        <input type="password" name ="password" placeholder="Yaha password likh ">
+        <button>Edit karde yrr </button>
+    </form>
 </body>
 </html>
