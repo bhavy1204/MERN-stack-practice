@@ -160,6 +160,7 @@ app.patch("/user/:id", (req, res) => {
   // res.send("WRORKING ! ");
 
   let userId = req.params.id;
+  let {password : formpass, username : formUsername }= req.body;
   let query = `SELECT * FROM user WHERE userID="${userId}";`;
   try {
     connection.query(query, (err, result) => {
@@ -167,8 +168,19 @@ app.patch("/user/:id", (req, res) => {
         console.log(err);
       }
       let user = result[0];
-      console.log(userId);
-      res.send(user +" Changed successfully ");
+      if(formpass != user.password){
+        res.send("CHUTIYYA SAMJE HO KA SAHI SE PASSWORD DAALO NHI TO YAHI DHAR DENGE ! ")
+      }else{
+        let q2 = `UPDATE user SET username = "${formUsername}" WHERE userId = "${userId}";`;
+        connection.query(q2,(err2,result2)=>{
+          if(err2){
+            throw err2;
+          }
+          res.redirect("/users");
+        })
+      };
+      // console.log(userId);
+      // res.send(user);
     });
   } catch (error) {
     console.log(error);
@@ -178,6 +190,33 @@ app.patch("/user/:id", (req, res) => {
 
 });
 
+// for deleting 
+app.delete("/user/:id", (req,res)=> {
+  let id = req.params.id;
+  let{password : formpass, username=username}= req.body;
+  let q = `SELECT * FROM user WHERE userID="${id}";`;
+  try {
+    connection.query(q,(err,result)=>{
+      if(err){
+        throw err;
+      }
+      if(formpass != password || username != username){
+        res.send("CHUTIYA SAMJE HO KA SAHI DETAIL DO VARNA YAHI DHAR DENGE ! ");
+      }else{
+        let q2 =`DELETE FROM user WHERE userID="${id}";`;
+        connection.query(q2,(err2,res2)=>{
+          if(err2){
+            throw err2;
+          }
+          res.send(res2);
+        });
+      }
+    });
+  } catch (err) {
+    console.log(err)
+  }
+
+});
 
 app.listen(3000, () => {
   console.log("Halchal at port 3000 ");
