@@ -9,6 +9,9 @@ const path = require("path");
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine","ejs");
 
+// To show express where or static files like css and all will be there ! 
+app.use(express.static(path.join(__dirname,"public")));
+
 main().then(()=>{
     console.log("Le bhai mongo se bhi connect ho gaya ! ");
 }).catch((err)=>{
@@ -30,6 +33,13 @@ async function main() {
 // chat1.save().then((res)=>{
 //     console.log(res);
 // });
+
+app.get("/chats", async (req,res)=>{
+    let chats = await Chat.find();
+    console.log(chats);
+    res.render("index.ejs",{chats});
+    // res.send("Ab tuje chats dekhni hai BKL..");
+});
 
 app.get("/",(req,res)=>{
     res.send("Aa gaya firse BC ! ");
