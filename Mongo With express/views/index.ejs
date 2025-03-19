@@ -10,6 +10,9 @@
 
 <body>
     <h3>Le ye rahi teri chette ! </h3>
+    <form action="/chats/new" method="get" >
+        <button>Aur baate karni hai mujhe to</button>
+    </form>
     <% for(let chat of chats){ %>
         <div class="chat">
             <p>FROM : <%= chat.from %> </p>

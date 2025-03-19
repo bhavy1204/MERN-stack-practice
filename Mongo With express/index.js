@@ -9,6 +9,8 @@ const path = require("path");
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine","ejs");
 
+app.use(express.urlencoded({extended : true}));
+
 // To show express where or static files like css and all will be there ! 
 app.use(express.static(path.join(__dirname,"public")));
 
@@ -34,9 +36,34 @@ async function main() {
 //     console.log(res);
 // });
 
+// NEW CHAT ROUTE 
+app.get("/chats/new",(req,res)=>{
+    res.render("new.ejs")
+});
+
+// Adding new chat 
+app.post("/chats",(req,res)=>{
+    // We need to parse this thus we will write urlencoded true above 
+    let {from,to,msg} = req.body;
+    let newChat = new Chat({
+        from : from,
+        msg: msg,
+        to : to,
+        created_at : new Date(),
+    });
+    // console.log(newChat);
+    newChat.save().then(res=>{
+        console.log("New chat Saved ");
+    }).catch((err)=>{
+        console.log("Bhai tere isme bhi error hai chod de coding naai ban ja ! ");
+    })
+    // res.send("Kaam kar raha hai ! ");
+    res.redirect("/chats");
+});
+
 app.get("/chats", async (req,res)=>{
     let chats = await Chat.find();
-    console.log(chats);
+    // console.log(chats);
     res.render("index.ejs",{chats});
     // res.send("Ab tuje chats dekhni hai BKL..");
 });
