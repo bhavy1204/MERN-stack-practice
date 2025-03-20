@@ -18,8 +18,14 @@
             <p>FROM : <%= chat.from %> </p>
             <div class="msg">
                 <p>MESSAGE : <%= chat.msg %> </p>
+                <form method="get" action="/chats/<%= chat._id %>/edit">
+                    <button>EDIT KARNA HAI :( </button>
+                </form>
             </div>
             <p>TO : <%= chat.to %> </p>
+            <!-- Puri date ko apan ne ese split kardia jisse vo array ban gayi aur ana ne uspe index daal ke parrticalur,time,date,day ko access kar dia -->
+            <p>TIME : <%= chat.created_at.toString().split(" ")[4] %> </p>
+            <p>DATE : <%= chat.created_at.toString().split(" ").slice(0,4).join(" ") %> </p>
         </div>
         <hr>
     <% } %>
