@@ -21,6 +21,9 @@
                 <form method="get" action="/chats/<%= chat._id %>/edit">
                     <button>EDIT KARNA HAI :( </button>
                 </form>
+                <form method="get" action="/chats/<%= chat._id %>?_method=DELETE">
+                    <button>DELETE KARNA HAI :( </button>
+                </form>
             </div>
             <p>TO : <%= chat.to %> </p>
             <!-- Puri date ko apan ne ese split kardia jisse vo array ban gayi aur ana ne uspe index daal ke parrticalur,time,date,day ko access kar dia -->
