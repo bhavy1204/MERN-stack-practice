@@ -55,7 +55,7 @@ const verifyToken = (req,res,next)=>{
     if(token === "giveaccess"){
         return next();
     }
-    throw new ExpressError(404,"Teri gaand maar denge sahi password daal varna nikal apni gaand leke !! ");
+    throw new ExpressError(405,"Teri gaand maar denge sahi password daal varna nikal apni gaand leke !! ");
 };
 
 // Consider it as a api above is the middleware to check key and than paas the data
@@ -82,9 +82,18 @@ app.get("/random",(req,res)=>{
 app.get("/err",(req,res)=>{
     meow=meow;
 });
+
+// Admin route 
+app.get("/admin",(req,res)=>{
+    throw new ExpressError(403,"Tuje access nhi milegi bhadwe!");
+});
+
+
 // ERROR HANDLING MIDDLEWARES 
 app.use((err,req,res,next)=>{
     console.log("--ERROR--");
+    let {status= 500 ,message = "Rehne de na bhai ghar ja tu"} = err;
+
     // next();
     // Jo error handling midlwre hote hai unme next, non error handling midlwre ko search karega. To uske liye apne ko next ke argument me err ko paas karna hoga.
     // next(); ❌ This would call the next NON-error middleware (which is incorrect for error handling)
@@ -93,7 +102,7 @@ app.use((err,req,res,next)=>{
     // next(err); ✅ This ensures that the error is properly passed to the next error-handling middleware.
     // next(err);
     // Temp:- 
-    res.send(err);
+    res.status(status).send(message);
 });
 
 // This middleware will work when req matches none of the previous routes. Bascially it is for 404;
