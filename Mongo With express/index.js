@@ -60,44 +60,61 @@ app.post("/chats", async (req, res,next) => {
             to: to,
             created_at: new Date(),
         });
-        // console.log(newChat);
-        newChat.save().then(res => {
-            console.log("New chat Saved ");
-            res.redirect("/chats");
-        }).catch((err) => {
-            console.log("Bhai tere isme bhi error hai chod de coding vyas ban ja ! ");
-        })
+        console.log(newChat);
+        await newChat.save()
+        // .then(res => {
+        //     console.log("New chat Saved ");
+        res.redirect("/chats");
+        // }).catch((err) => {
+        //     console.log("Bhai tere isme bhi error hai chod de coding vyas ban ja ! ");
+        // })
         // res.send("Kaam kar raha hai ! ");
     } catch (err) { 
         next(err);//Calling or error handling middleware in end :) 
     }
 });
 
+
+// INDEX ROUTE
 app.get("/chats", async (req, res) => {
-    let chats = await Chat.find();
-    // console.log(chats);
-    res.render("index.ejs", { chats });
-    // res.send("Ab tuje chats dekhni hai BKL..");
+    try {
+        let chats = await Chat.find();
+        // console.log(chats);
+        res.render("index.ejs", { chats });
+        // res.send("Ab tuje chats dekhni hai BKL..");    
+    } catch (err) {
+        next(err);
+    }
 });
 
 // New show route
 app.get("/chats/:id", async (req, res, next) => {
-    let { id } = req.params;
-    let chat = await Chat.findById(id);
-    if (!chat) {
-        // ; //This will just simply crash the server bcz it is async. In these by default call to next is not made we have to explicitly call it...
-        // Mongo db me findbyid me agar usko chat nhi milti vo bas chat ke andar garbage/undefined ya har kuch daal ke deta hai par error nhi batata. aur ye error ejs template generate karta hai Mongo DB nhi :) 
-        return next(new ExpressError(300, "Async error msg"));
+    try{
+        let { id } = req.params;
+        let chat = await Chat.findById(id);
+        if (!chat) {
+            // ; //This will just simply crash the server bcz it is async. In these by default call to next is not made we have to explicitly call it...
+            // Mongo db me findbyid me agar usko chat nhi milti vo bas chat ke andar garbage/undefined ya har kuch daal ke deta hai par error nhi batata. aur ye error ejs template generate karta hai Mongo DB nhi :) 
+            return next(new ExpressError(300, "Async error msg( \"Id wrong :) \") "));
+        }
+        res.render("edit.ejs", { chat });
+    }catch(err){
+        next(err);
     }
-    res.render("edit.ejs", { chat });
+
 });
 
 
 // EDIT ROUTE
 app.get("/chats/:id/edit", async (req, res) => {
-    let { id } = req.params;
-    let chat = await Chat.findById(id);
-    res.render("edit.ejs", { chat });
+    try {
+        let { id } = req.params;
+        let chat = await Chat.findById(id);
+        res.render("edit.ejs", { chat });       
+    } catch (err) {
+        next(err);
+    }
+
 });
 
 
