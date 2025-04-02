@@ -50,7 +50,7 @@ app.get("/chats/new", (req, res) => {
 });
 
 // Adding new chat 
-app.post("/chats", async (req, res,next) => {
+app.post("/chats", async (req, res, next) => {
     try {
         // We need to parse this thus we will write urlencoded true above 
         let { from, to, msg } = req.body;
@@ -69,7 +69,7 @@ app.post("/chats", async (req, res,next) => {
         //     console.log("Bhai tere isme bhi error hai chod de coding vyas ban ja ! ");
         // })
         // res.send("Kaam kar raha hai ! ");
-    } catch (err) { 
+    } catch (err) {
         next(err);//Calling or error handling middleware in end :) 
     }
 });
@@ -87,30 +87,36 @@ app.get("/chats", async (req, res) => {
     }
 });
 
-// New show route
-app.get("/chats/:id", async (req, res, next) => {
-    try{
-        let { id } = req.params;
-        let chat = await Chat.findById(id);
-        if (!chat) {
-            // ; //This will just simply crash the server bcz it is async. In these by default call to next is not made we have to explicitly call it...
-            // Mongo db me findbyid me agar usko chat nhi milti vo bas chat ke andar garbage/undefined ya har kuch daal ke deta hai par error nhi batata. aur ye error ejs template generate karta hai Mongo DB nhi :) 
-            return next(new ExpressError(300, "Async error msg( \"Id wrong :) \") "));
-        }
-        res.render("edit.ejs", { chat });
-    }catch(err){
-        next(err);
-    }
+// WrapAsync is a function which returns a function and takes function as a argument. The function which it returns contains a req,resand next and this function runs the function which is in argument and it it thenable so we can hnadele errors by.catch(err)
 
-});
+// We used it bcz try catch was too bulky 
+
+function asyncWrap(func){
+    return function(req,res,next){
+        func(req,res,next).catch((err)=>next(err));
+    }
+};
+
+// In this we wrapped the whole function inside wrapAsync and passed it as a argment
+// New show route
+app.get("/chats/:id", asyncWrap(async (req, res, next) => {
+    let { id } = req.params;
+    let chat = await Chat.findById(id);
+    if (!chat) {
+        // ; //This will just simply crash the server bcz it is async. In these by default call to next is not made we have to explicitly call it...
+        // Mongo db me findbyid me agar usko chat nhi milti vo bas chat ke andar garbage/undefined ya har kuch daal ke deta hai par error nhi batata. aur ye error ejs template generate karta hai Mongo DB nhi :) 
+        return next(new ExpressError(300, "Async error msg( \"Id wrong :) \") "));
+    }
+    res.render("edit.ejs", { chat });
+}));
 
 
 // EDIT ROUTE
-app.get("/chats/:id/edit", async (req, res) => {
+app.get("/chats/:id/edit", async (req, res,next) => {
     try {
         let { id } = req.params;
         let chat = await Chat.findById(id);
-        res.render("edit.ejs", { chat });       
+        res.render("edit.ejs", { chat });
     } catch (err) {
         next(err);
     }
@@ -141,6 +147,22 @@ app.delete("/chats/:id", async (req, res) => {
 app.get("/", (req, res) => {
     res.send("Aa gaya firse BC ! ");
 })
+
+
+const handelValidationError = (err)=>{
+    console.log("Tu firse invalid data enter karane ki koshish kar raha hai..Sharam nhi aati ..? ");
+    console.dir(err);
+}
+
+app.use((err,req,res,next)=>{
+    console.log(err.name); //This will tell specific error of express and mongo
+    if(err.name === "Error"){
+        console.log("BSDK dhang se kaam kar na :) ");
+    }else if(err.name === "ValidationError"){
+        err = handelValidationError(err);
+    }
+    next(err);
+});
 
 // Error handlling middleware
 app.use((err, req, res, next) => {
