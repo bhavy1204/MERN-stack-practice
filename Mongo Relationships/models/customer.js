@@ -23,12 +23,24 @@ const customerSchema = new Schema({
         },
     ],
 });
+// MongoDB middlewares
+
+// customerSchema.pre("findOneAndDelete", async(data)=>{
+//     console.log("PRE middleware ");
+// });
+
+customerSchema.post("findOneAndDelete", async(customer)=>{
+    if(customer.orders.length){
+        let res = await Order.deleteMany({_id: {$in: customer.orders}});
+        console.log(res);
+    }
+});
 
 
 const Order = mongoose.model("Order", orderSchema);
 const Customer = mongoose.model("Customer", customerSchema);
 
-const addCustomer = async ()=>{
+const addCustomer1 = async ()=>{
     let cust1 =  new Customer({
         name :"Bhagad billa",
     });
@@ -51,7 +63,7 @@ const findCustomer = async ()=>{
     console.log(res[0]);
 }
 
-findCustomer();
+// findCustomer();
 
 // const addOrders = async () =>{
 //     let result = await Order.insertMany([
@@ -63,3 +75,32 @@ findCustomer();
 // }
 
 // addOrders();
+
+
+// DELETION IN MONGO.. using queryy middleware of mongoDB
+const addCustomer = async()=>{
+    let newCust = new Customer({
+        name:"ram prasad",
+
+    });
+
+    let newOrder = new Order({
+        item:"Dudh",
+        price:50,
+    });
+
+    newCust.orders.push(newOrder);
+
+    await newOrder.save();
+    await newCust.save();
+
+    console.log("Naya cust bhi add ho gaya :) ");
+}
+
+const delCust = async()=>{
+    let data = await Customer.findByIdAndDelete("67f48fbcc11d5bf8bf5110dd");
+    console.log(data);
+}
+
+// addCustomer();
+delCust();
