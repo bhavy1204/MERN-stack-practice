@@ -1,0 +1,16 @@
+React is a libraray of js made for creating UI elements.
+Official libraray => react.dev
+
+componnts - individiual piece of code.
+
+componenets are like functions in terms of functionality as they are made once but we can use them many times.
+
+As using of a function is called "call",  similarly using of componenets is called "rendering". We are rendering componenets.
+
+componenets may consists of multiple componenets.
+
+component can be as small as a button and as large as a page.
+every component has their own style and logic .
+so we could say that a "component = {html+js+css}"
+
+react is written is "jsx" syntax it is neither in html,css or js. Jsx is a way of writing html inside js.
