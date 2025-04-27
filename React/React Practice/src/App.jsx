@@ -36,7 +36,7 @@
 
 
 import "./app.css"
-import "./Title"
+import Title from "./Title.jsx"
 
 function App() {//This function is our app component aur jo ye return karega vo apna UI ban jayega
   // return <h1>This is first demo </h1>;

@@ -14,3 +14,30 @@ every component has their own style and logic .
 so we could say that a "component = {html+js+css}"
 
 react is written is "jsx" syntax it is neither in html,css or js. Jsx is a way of writing html inside js.
+
+JSX: javascript extension syntax , lets us write html directly in JS.
+JSX is not real JS , it is transpile into JS with help of babel
+jsx -> babel -> JS
+
+t set up local env we have two choice either Create-react-app or vite, CRA is very old and slow as compared to vite which emerged in 2020 and much more faster.
+
+So first we creeate vite@latest, set up directory , in that we will funnd package-lock which means there are depemmdcy which we need to download than do "npm run dev" to run the server bascially it all creates an app for us.
+
+#FOLDER STRUCTURE -----------------------------
+in this the app.css and app.jsx, app is a component in whcih all other component will come to pura website ek "app" component hi hai. to compo ke andar html,css,js tino hote hai to apan ne html+js = app.jsx and other is app.css
+
+all our chanes are dne in app.jsx.
+app.jsx and all other are imported in main.jsx and than main.jsx is called in the index.html. index and main are fixed we do not need to change them. so all our changes will be done in app.jsx or other files if we create new compomeyts file for them.
+
+The 3 rules of writing markkup injsx :- 
+1. return a single root elements
+2. close alll tags.. like all the tags like img,hr,br etc. (<hr/> allowed ,but <hr> not allowed)
+3. camelCase most of the things
+
+babel and js..?
+
+html attribut jo js ke reserved keywords hai to unko apan attriibutes ki tarah use nhi kar paate. jese ki "class" css me ek atrribute hai par vo js ka ek reserved keyword hai isliye apan fir "className" likhte hai css/ html ke liye
+
+to jese ki apan jsx me ek elemt return karte hai aur multiple ho to unko ek div ke andar daal ke dete hai par usse apne DOM me ek div ki liye extra node banti hai jo ki actual me use bhi nhi hota hai to usko solve  karne ke liye apan react fragment ka use karte hai.. bascially div ki jagah apan ""return ("<>" //tags "</>")"" use kar lete hai bas. isse extra space bhi nhi hota aur kaam bhi hoo jata hai.
+
+jsx me apan jo bhi code curly braces {} me likh dete hai vo pure JS ki tarah uuse hota hai. useful when we want to add logics,dynamic properties we can use it to open a winf=dow for JS. 
