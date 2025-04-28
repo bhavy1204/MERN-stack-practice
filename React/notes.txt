@@ -41,3 +41,7 @@ html attribut jo js ke reserved keywords hai to unko apan attriibutes ki tarah u
 to jese ki apan jsx me ek elemt return karte hai aur multiple ho to unko ek div ke andar daal ke dete hai par usse apne DOM me ek div ki liye extra node banti hai jo ki actual me use bhi nhi hota hai to usko solve  karne ke liye apan react fragment ka use karte hai.. bascially div ki jagah apan ""return ("<>" //tags "</>")"" use kar lete hai bas. isse extra space bhi nhi hota aur kaam bhi hoo jata hai.
 
 jsx me apan jo bhi code curly braces {} me likh dete hai vo pure JS ki tarah uuse hota hai. useful when we want to add logics,dynamic properties we can use it to open a winf=dow for JS. 
+
+React styling cna be done in two ways with css files and with react tools. In css format we can either write styling of all components ina single css file or may creat different css file for each component.
+
+react ke andar import/export webpack ki help se hota hai.

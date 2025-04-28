@@ -37,6 +37,7 @@
 
 import "./app.css"
 import Title from "./Title.jsx"
+import ProductTab from "./peoductTab.jsx";
 
 function App() {//This function is our app component aur jo ye return karega vo apna UI ban jayega
   // return <h1>This is first demo </h1>;
@@ -46,8 +47,12 @@ function App() {//This function is our app component aur jo ye return karega vo 
   <div>
       <button>This is btn 1</button>
       <button>This is btn 2</button>
+      {/* <Product/> */}
       <Title/> 
       <Title/>
+      <hr />
+      <ProductTab/>
+
   </div> //By this way we can render multiple elements in a single return.
   );
 }
