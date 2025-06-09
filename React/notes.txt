@@ -1,7 +1,7 @@
 React is a libraray of js made for creating UI elements.
 Official libraray => react.dev
 
-componnts - individiual piece of code.
+components - individiual piece of code.
 
 componenets are like functions in terms of functionality as they are made once but we can use them many times.
 
@@ -17,19 +17,19 @@ react is written is "jsx" syntax it is neither in html,css or js. Jsx is a way o
 
 JSX: javascript extension syntax , lets us write html directly in JS.
 JSX is not real JS , it is transpile into JS with help of babel
-jsx -> babel -> JS
+jsx ->(with help of babel )-> JS
 
-t set up local env we have two choice either Create-react-app or vite, CRA is very old and slow as compared to vite which emerged in 2020 and much more faster.
+to set up local env we have two choice either Create-react-app or vite, CRA is very old and slow as compared to vite which emerged in 2020 and much more faster.
 
-So first we creeate vite@latest, set up directory , in that we will funnd package-lock which means there are depemmdcy which we need to download than do "npm run dev" to run the server bascially it all creates an app for us.
+So first we creeate "npm create vite@latest", set up directory , in that we will funnd package-lock which means there are depemmdcy which we need to download than do "npm run dev" to run the server bascially it all creates an app for us.
 
 #FOLDER STRUCTURE -----------------------------
-in this the app.css and app.jsx, app is a component in whcih all other component will come to pura website ek "app" component hi hai. to compo ke andar html,css,js tino hote hai to apan ne html+js = app.jsx and other is app.css
+in this the app.css and app.jsx, app is a component in whcih all other component will come, to pura website ek "app" component hi hai. to compo ke andar html,css,js tino hote hai to apan ne html+js = app.jsx and other is app.css
 
-all our chanes are dne in app.jsx.
+all our changes are done in app.jsx.
 app.jsx and all other are imported in main.jsx and than main.jsx is called in the index.html. index and main are fixed we do not need to change them. so all our changes will be done in app.jsx or other files if we create new compomeyts file for them.
 
-The 3 rules of writing markkup injsx :- 
+The 3 rules of writing markkup in jsx :- 
 1. return a single root elements
 2. close alll tags.. like all the tags like img,hr,br etc. (<hr/> allowed ,but <hr> not allowed)
 3. camelCase most of the things
@@ -45,3 +45,8 @@ jsx me apan jo bhi code curly braces {} me likh dete hai vo pure JS ki tarah uus
 React styling cna be done in two ways with css files and with react tools. In css format we can either write styling of all components ina single css file or may creat different css file for each component.
 
 react ke andar import/export webpack ki help se hota hai.
+
+
+index.html - > main.jsx <- App.jsx
+|                |(App)
+---> (root ele)<--
