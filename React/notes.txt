@@ -18,6 +18,8 @@ react is written is "jsx" syntax it is neither in html,css or js. Jsx is a way o
 JSX: javascript extension syntax , lets us write html directly in JS.
 JSX is not real JS , it is transpile into JS with help of babel
 jsx ->(with help of babel )-> JS
+How exactly babel works.? What is actual meaning of transpile..?
+What and why the react need to b setup locally..? if it is just js and html than why to set up vite or the create-react-app..? What d they actually do..?
 
 to set up local env we have two choice either Create-react-app or vite, CRA is very old and slow as compared to vite which emerged in 2020 and much more faster.
 
@@ -36,7 +38,7 @@ The 3 rules of writing markkup in jsx :-
 
 babel and js..?
 
-html attribut jo js ke reserved keywords hai to unko apan attriibutes ki tarah use nhi kar paate. jese ki "class" css me ek atrribute hai par vo js ka ek reserved keyword hai isliye apan fir "className" likhte hai css/ html ke liye
+html attribut jo ki javascript ke reserved keywords hai, to unko apan attriibutes ki tarah use nhi kar paate. jese ki "class" css me ek atrribute hai par vo js ka ek reserved keyword hai isliye apan fir "className" likhte hai css/ html ke liye
 
 to jese ki apan jsx me ek elemt return karte hai aur multiple ho to unko ek div ke andar daal ke dete hai par usse apne DOM me ek div ki liye extra node banti hai jo ki actual me use bhi nhi hota hai to usko solve  karne ke liye apan react fragment ka use karte hai.. bascially div ki jagah apan ""return ("<>" //tags "</>")"" use kar lete hai bas. isse extra space bhi nhi hota aur kaam bhi hoo jata hai.
 
