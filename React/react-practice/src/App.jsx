@@ -1,5 +1,7 @@
 import "./App.css"
 import Title from "./Title.jsx" // for deafult
+import Calc from "./Calculation.jsx"
+import CardList from "./CardList";
 // import {Title} from "./Title.jsx" // for named export
 
 // // 2 componets ko apan vese hi function jese create karte ha 
@@ -14,7 +16,9 @@ function App() {
   // return <h1>Hello billi ! </h1>;
   return (
     <>
+      <CardList/>
       <Title/>
+      <Calc/>
       <p>Hello world this is example of the paragraph</p>
     </>
   )

@@ -40,3 +40,23 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 3px;
+}
+
+.card img{
+  height: 100px;
+  width: 100px;
+}
+
+.cardList{
+  display: flex;
+}
