@@ -1,9 +1,9 @@
-function Card() {
+function Card({link, title="Not availabe",desc}) {
     return (
         <div className="card">
-            <img src="../public/creation_1.png" alt="error" />
-            <h2>Heading</h2>
-            <p>This is description of the card</p>
+            <img src={link} alt="error" />
+            <h2>{title}</h2>
+            <p>{desc}</p>
         </div>
     )
 }
