@@ -52,3 +52,5 @@ react ke andar import/export webpack ki help se hota hai.
 index.html - > main.jsx <- App.jsx
 |                |(App)
 ---> (root ele)<--
+
+
