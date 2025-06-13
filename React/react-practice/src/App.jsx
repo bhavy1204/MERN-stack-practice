@@ -2,6 +2,7 @@ import "./App.css"
 import Title from "./Title.jsx" // for deafult
 import Calc from "./Calculation.jsx"
 import CardList from "./CardList";
+import Greet from "./Greet.jsx";
 // import {Title} from "./Title.jsx" // for named export
 
 // // 2 componets ko apan vese hi function jese create karte ha 
@@ -16,6 +17,9 @@ function App() {
   // return <h1>Hello billi ! </h1>;
   return (
     <>
+      <Greet name="ram" textColor="red"/>
+      <Greet name="shyam" textColor="yellow"/>
+      <Greet textColor="blue"/>
       <CardList/>
       <Title/>
       <Calc/>

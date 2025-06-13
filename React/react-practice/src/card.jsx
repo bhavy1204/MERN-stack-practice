@@ -12,15 +12,17 @@
 // }
 
 function Card({ link, title = "Not availabe", desc, price = 1 }) {
+    let isDiscount= price>500;
+    let style = {backgroundColor: isDiscount?"black":""} //Dynamic styling 
     return (
-        <div className="card">
+        <div className="card" style={style}>
             <img src={link} alt="error" />
             <h2>{title}</h2>
             <p>{desc}</p>
             <p>{price}</p>
             {/* <p>{price>500? "discount of 5%" : "garib  "}</p> */}
             {/* {price > 500 ? <p> "discount of 5%" </p> :null} */}
-            {price > 500 && <p> discount of 5% </p>}
+            {isDiscount && <p> discount of 5% </p>}
         </div>
     )
 }
