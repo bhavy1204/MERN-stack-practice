@@ -3,6 +3,8 @@ import Title from "./Title.jsx" // for deafult
 import Calc from "./Calculation.jsx"
 import CardList from "./CardList";
 import Greet from "./Greet.jsx";
+
+import ProductTab from "./Producttab.jsx";
 // import {Title} from "./Title.jsx" // for named export
 
 // // 2 componets ko apan vese hi function jese create karte ha 
@@ -24,6 +26,7 @@ function App() {
       <Title/>
       <Calc/>
       <p>Hello world this is example of the paragraph</p>
+      <ProductTab/>
     </>
   )
 }

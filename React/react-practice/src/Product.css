@@ -1,0 +1,20 @@
+.product {
+    background-color: #fff;
+    color: black;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 3px;
+}
+
+.product img {
+    height: 100px;
+    width: 100px;
+}
+
+/* .productTab{
+    display: flex;
+} */
