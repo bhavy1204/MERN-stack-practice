@@ -7,6 +7,9 @@ import Greet from "./Greet.jsx";
 import ProductTab from "./Producttab.jsx";
 // import {Title} from "./Title.jsx" // for named export
 
+// For EVENT handling
+import Button from "./button.jsx";
+
 // // 2 componets ko apan vese hi function jese create karte ha 
 // function Title() {
 //   return <h1>Hello Billi dobara! </h1>
@@ -19,14 +22,15 @@ function App() {
   // return <h1>Hello billi ! </h1>;
   return (
     <>
-      <Greet name="ram" textColor="red"/>
+      {/* <Greet name="ram" textColor="red"/>
       <Greet name="shyam" textColor="yellow"/>
       <Greet textColor="blue"/>
       <CardList/>
       <Title/>
       <Calc/>
       <p>Hello world this is example of the paragraph</p>
-      <ProductTab/>
+      <ProductTab/> */}
+      <Button/>
     </>
   )
 }
