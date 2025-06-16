@@ -6,7 +6,7 @@ function doSomethinng(event){
 function paraDemo(){
     let x = new Audio("Voicy_loud indian music.mp3")
     alert("chala ja yaha se! ");
-    x.play();
+    // x.play();
 }
 
 function saygaali(){

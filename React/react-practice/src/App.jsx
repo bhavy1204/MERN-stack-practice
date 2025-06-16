@@ -9,6 +9,7 @@ import ProductTab from "./Producttab.jsx";
 
 // For EVENT handling
 import Button from "./button.jsx";
+import Form from "./form.jsx";
 
 // // 2 componets ko apan vese hi function jese create karte ha 
 // function Title() {
@@ -31,6 +32,7 @@ function App() {
       <p>Hello world this is example of the paragraph</p>
       <ProductTab/> */}
       <Button/>
+      <Form/>
     </>
   )
 }
