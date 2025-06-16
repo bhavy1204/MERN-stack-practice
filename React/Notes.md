@@ -12,3 +12,12 @@
 > isi ko karne ka dusraoption ye hoga ki apan array kko to normal rakhe aur print karate time apan map function ka use kare taaki har value ko element me convert kar sake. ye easy aur freqent use hoga. 
 
 
+---
+
+>react has three pillar:-
+1. components
+2. props
+3. state
+
+# state
+> 
