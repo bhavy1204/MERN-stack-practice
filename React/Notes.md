@@ -20,4 +20,13 @@
 3. state
 
 # state
-> 
+
+
+
+# closure 
+A closure is a feature in JS where an inner function has access to the outer (enclosing) function's variable. 
+IN js once a function completes any variable that were defined inside the function scope xease to exists.
+
+
+- component re render tab hi karega jab statet ki value me koi change aayega.
+- apan useState hook ke argument m ek function bhi paas kar sakte hai par usko as a refrence hi paas karna hota hai call nhi jese maan lo apne function ka naam that "initValue(){};" to apan likhenege "useState(initValue)" isko as refrence hbolte hai par agar apan "useState(initValue())" likheneg to jab bhi re rendering hogi tab ye function bhi call hoga aur resources consume karega.
