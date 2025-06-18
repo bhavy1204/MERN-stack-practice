@@ -3,12 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import LudoBoard from './LudoBoard'
+import ToDOList from './ToDoList'
 
 function App() {
 
   return (
     <>
-      <LudoBoard/>
+      <ToDOList></ToDOList>
+      {/* <LudoBoard/> */}
     </>
   )
 }
