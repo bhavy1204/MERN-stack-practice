@@ -2,7 +2,7 @@ import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 
 export default function ToDOList() {
-    let [todoList, updateToDo] = useState([{ task: "kaam ", id: uuidv4() }]);
+    let [todoList, updateToDo] = useState([{ task: "kaam ", id: uuidv4(), isDone: false }]);
     let [newToDO, updateNewToDO] = useState("");
 
     let addNewTask = () => {
@@ -51,6 +51,21 @@ export default function ToDOList() {
         })
     }
 
+    let completeTask = (id) => {
+        updateToDo((prevTask) => {
+            return prevTask.map((todo) => {
+                if (todo.id === id) {
+                    return {
+                        ...todo,
+                        isDone: true,
+                    }
+                } else {
+                    return todo;
+                }
+            })
+        })
+    }
+
     return (
         <div>
             <h2>To do list </h2>
@@ -62,10 +77,11 @@ export default function ToDOList() {
                 {todoList.map((todo) => (
                     <li key={todo.id}>
                         <span>
-                            {todo.task}  &nbsp;
+                            {todo.isDone ? <del>{todo.task}</del> : (todo.task)}
                             {/* Here we used arrow function otherwise if we just wrote it with arguments than that would be funcction call and execcuted immediatley */}
                             <button onClick={() => taskDelete(todo.id)}>Delete</button> &nbsp; &nbsp;
-                             <button onClick={() => singleUpperCase(todo.id)}>Ya lowerCase karle</button>
+                            <button onClick={() => singleUpperCase(todo.id)}>lowerCase</button>  &nbsp; &nbsp;
+                            <button onClick={() => completeTask(todo.id)}>Complete</button>
                         </span>
                         <br />
                     </li>
