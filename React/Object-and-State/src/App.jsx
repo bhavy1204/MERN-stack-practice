@@ -4,12 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import LudoBoard from './LudoBoard'
 import ToDOList from './ToDoList'
+import Lottery from './Lottery'
 
 function App() {
 
   return (
     <>
-      <ToDOList></ToDOList>
+      <Lottery/>
+      {/* <ToDOList></ToDOList> */}
       {/* <LudoBoard/> */}
     </>
   )
