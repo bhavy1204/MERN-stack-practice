@@ -40,24 +40,21 @@
 import { useState } from "react"
 import "./Lottery.css"
 import { genTicket,sum } from "./helper";
+import Ticket from "./Ticket";
 
-export default function Lottery() {
-    let [ticket, setTicket] = useState(["","",""]);
-    let isWining = sum(ticket) === 15;
+export default function Lottery({n=3,winingSum=15}) {
+    let [ticketArr, setTicket] = useState(genTicket(n));
+    let isWining = sum(ticketArr) === winingSum;
 
-    let createTicket= ()=>{
-        setTicket(genTicket(3));
+    let buyNewTicket= ()=>{
+        setTicket(genTicket(n));
     }
     return (
         <>
-            <h1> Le bhai laga satta </h1>
-            <h1>{isWining && "Badhai ho tu jit gaya ! "}</h1>
-            <div className="number">
-                <span>{ticket[0]}</span>
-                <span>{ticket[1]}</span>
-                <span>{ticket[2]}</span>
-            </div>
-            <button onClick={createTicket} >Chuu mantar</button>
+            <h1> Buy Ticket </h1>
+            <h1>{isWining && "Congrats you won the lottery ! "}</h1>
+            <Ticket ticket={ticketArr}/>
+            <button onClick={buyNewTicket} >Buy Ticket</button>
         </>
     )
 }
