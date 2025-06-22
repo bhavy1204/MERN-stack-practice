@@ -6,12 +6,18 @@ import LudoBoard from './LudoBoard'
 import ToDOList from './ToDoList'
 import Lottery from './Lottery'
 import Ticket from './Ticket'
+import { sum } from './helper'
 
 function App() {
 
+  let winCondition = (ticket)=>{
+    // return sum(ticket)===15;
+    return ticket.every((num)=> num===ticket[0]);
+  }
+
   return (
     <>
-      <Lottery n={5} winingSum={10}/>
+      <Lottery winCondition = {winCondition}/>
       {/* <Ticket ticket={[1,2,3]}/> */}
       {/* <Lottery/> */}
       {/* <ToDOList></ToDOList> */}

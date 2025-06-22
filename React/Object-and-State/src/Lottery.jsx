@@ -37,14 +37,22 @@
 // logical compo n the other hands have state which have some logic and definately will be doing somme work 
 
 
+// FUNCTIONS AS PROPS
+// JS functions are first class objects.
+// This means they can be passed to a function as a argument , returned from it and assigned to a variable
+
+
+// html,css , js me kya hota hai ki jab bhi change aata hai tab pura DOM re render hota hai par react me jis ccompont ya jagah me change aata hai sirf wahi part re render hota hai.
+
 import { useState } from "react"
 import "./Lottery.css"
 import { genTicket,sum } from "./helper";
 import Ticket from "./Ticket";
+import Button from "./Button";
 
-export default function Lottery({n=3,winingSum=15}) {
+export default function Lottery({n=3,winCondition}) {
     let [ticketArr, setTicket] = useState(genTicket(n));
-    let isWining = sum(ticketArr) === winingSum;
+    let isWining = winCondition(ticketArr);
 
     let buyNewTicket= ()=>{
         setTicket(genTicket(n));
@@ -54,7 +62,7 @@ export default function Lottery({n=3,winingSum=15}) {
             <h1> Buy Ticket </h1>
             <h1>{isWining && "Congrats you won the lottery ! "}</h1>
             <Ticket ticket={ticketArr}/>
-            <button onClick={buyNewTicket} >Buy Ticket</button>
+            <Button action={buyNewTicket}/>  
         </>
     )
 }
