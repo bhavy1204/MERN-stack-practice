@@ -3,16 +3,18 @@ import Counter from './Counter'
 import LikeButton from './LikeButton'
 import Greetbhavy from './GreetBhavy';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Forms from './Forms';
 
 function App() {
 
   return (
     <>
-      <h1>Hello me vapis aa gaya</h1>
+      <Forms/>
+      {/* <h1>Hello me vapis aa gaya</h1>
       <Counter></Counter>
       <LikeButton/>
       <hr />
-      <Greetbhavy/>
+      <Greetbhavy/> */}
     </>
   )
 }
