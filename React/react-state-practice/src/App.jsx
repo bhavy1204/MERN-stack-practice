@@ -4,12 +4,14 @@ import LikeButton from './LikeButton'
 import Greetbhavy from './GreetBhavy';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Forms from './Forms';
+import CommentForm from './CommentForm';
 
 function App() {
 
   return (
     <>
-      <Forms/>
+      <CommentForm/>
+      {/* <Forms/> */}
       {/* <h1>Hello me vapis aa gaya</h1>
       <Counter></Counter>
       <LikeButton/>
