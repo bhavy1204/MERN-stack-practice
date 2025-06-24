@@ -5,12 +5,13 @@ import Greetbhavy from './GreetBhavy';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Forms from './Forms';
 import CommentForm from './CommentForm';
+import Comment from './Comment';
 
 function App() {
 
   return (
     <>
-      <CommentForm/>
+      <Comment/>
       {/* <Forms/> */}
       {/* <h1>Hello me vapis aa gaya</h1>
       <Counter></Counter>
