@@ -23,7 +23,7 @@ export default function Comment() {
                 <div className="comment" key={idx}>
                 <p>{comment.username}</p> &nbsp;
                 <span>{comment.remarks}</span> &nbsp;
-                <span>,rating : {comment.rating}</span> &nbsp;
+                <span>, {comment.rating}-stars</span> &nbsp;
             </div>
             ))}
         </div>
