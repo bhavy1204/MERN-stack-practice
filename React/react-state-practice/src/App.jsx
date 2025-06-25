@@ -7,12 +7,14 @@ import Forms from './Forms';
 import CommentForm from './CommentForm';
 import Comment from './Comment';
 import Counter2 from './Counter2';
+import Joker from './Joker';
 
 function App() {
 
   return (
     <>
-      <Counter2/>
+      <Joker/>
+      {/* <Counter2/> */}
       {/* <Comment/> */}
       {/* <Forms/> */}
       {/* <h1>Hello me vapis aa gaya</h1>
