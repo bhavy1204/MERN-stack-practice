@@ -18,6 +18,19 @@ export const todosSlice = createSlice({
             }
             // Redux allows direct mutation in array unlike react where we first have to de-structure arrya than add new value and than copy.
             state.todos.push(newTodo);
+        },
+        deleteTodo: (state, action) => {
+            state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+        },
+        markAsDone: (state, action) => {
+            state.todos = state.todos.map((todo) => {
+                if (todo.id === action.payload) {
+                    todo.isDone = true;
+                }
+            });
         }
     }
 })
+
+export const { addTodo, deleteTodo, markAsDone } = todosSlice.actions;
+export default todosSlice.reducer;
