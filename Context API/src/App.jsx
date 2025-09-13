@@ -1,45 +1,25 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import { ThemeProvider } from './context/theme.js'
-import ThemeBtn from './componenets/Button.jsx';
-import Card from './componenets/card.jsx';
+import { useContext } from "react"
+import ThemeContext from "./context/ThemeContext"
+import ThemeContextProvider from "./componenets/ThemeContextprovider.jsx";
+import Navbar from "./componenets/Navbar.jsx";
 
 function App() {
 
-  const [theme, setTheme] = useState("light");
-
-  const lightTheme = () => {
-    setTheme("light")
-  }
-
-  const darkTheme = () => {
-    setTheme("dark")
-  }
-
-  useEffect(() => {
-    document.querySelector('html').classList.remove("light", "dark")
-    document.querySelector('html').classList.add(theme)
-  }, [theme])
-
-
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <>
-      <ThemeProvider value={{ theme, darkTheme, lightTheme }}>
-        <div className="flex flex-wrap min-h-screen items-center">
-          <div className="w-full">
-            <div className="w-full max-w-sm mx-auto flex justify-end mb-4">
-              {/* {theme button} */}
-              <ThemeBtn/>
-            </div>
-
-            <div className="w-full max-w-sm mx-auto">
-              {/* {card} */}
-              <Card/>
-            </div>
-          </div>
-        </div>
-      </ThemeProvider>
+      <div
+        style={{
+          background: theme === "light" ? "#fff" : "#222",
+          color: theme === "light" ? "#000" : "#fff",
+          height: "100vh",
+        }}
+      >
+        <Navbar/>
+        <h1>Current Theme: {theme}</h1>
+        <button onClick={toggleTheme}>Toggle Theme</button>
+      </div>
     </>
   )
 }
